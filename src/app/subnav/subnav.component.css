@@ -1,0 +1,43 @@
+.sub-navigation {
+    background-color: #943d24;
+}
+
+.sub-navigation a {
+    color: #fffbf0;
+}
+
+img {
+    margin-right: 20px;
+}
+
+.subnav-right {
+    position:absolute;
+    right: 0;
+}
+
+.subnav-right cds-icon {
+    margin: 10px;
+    color: #fffbf0;
+    border: none;
+}
+
+.subnav-right .meet-button {
+    border: #fffbf0;
+    background-color: #fffbf0;
+}
+
+.subnav-right .meet-button, .subnav-right .meet-button cds-icon {
+    color: #2d2d2d;
+}
+
+.subnav-right .meet-button cds-icon {
+
+}
+
+
+
+
+
+
+
+

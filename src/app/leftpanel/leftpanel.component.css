@@ -1,0 +1,61 @@
+.left-panel {
+    background-color: #fffbf0;
+    height: 90vh;
+}
+
+.nav-header {
+    padding-top: 5px;
+}
+
+.nav-header b, .nav-header cds-icon {
+    color: #2d2d2d;
+}
+
+.nav-header b{
+    font-size: large;
+    margin: 25px;
+}
+
+.nav-header cds-icon{
+    float: right;
+    margin-right: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.teams-list {
+    margin: 20px;
+    list-style: none;
+}
+
+.teams-list li {
+    margin-bottom: 15px;
+}
+
+.teams-list img {
+    width: "25";
+    height: "25";
+    margin-right: 5px;
+}
+
+.teams-list li a, .teams-list li cds-icon, .create-team {
+    color: #2d2d2d;
+}
+
+.teams-list li cds-icon {
+    float: right;
+    margin-top: 5px;
+}
+
+.create-team {
+    position: absolute;
+    bottom: 0;
+}
+
+.create-team .cog {
+    float: right;
+}
+
+.create-team span {
+    margin: 0px 3px;
+}

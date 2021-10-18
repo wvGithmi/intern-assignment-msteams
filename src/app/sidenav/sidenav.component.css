@@ -1,0 +1,17 @@
+.navigation {
+    width: max-content;
+    height: 90vh;
+    background-color: #e4ddf4;
+}
+
+.navigation .nav-icons {
+    margin: 0 auto;
+}
+
+div .icon-text, div a cds-icon {
+    color: #2d2d2d;
+}
+
+.icon-text {
+    font-size: 10px;
+}
