@@ -24,7 +24,7 @@
                     <b>Githmi Vithanawasam</b>
                     <small> 8/2 9:15 AM</small>  
                     <div class="card-text">
-                        <p>I'm having a meeting today. Won't be able to join the DSM.</p>
+                        <p>Good Morning!</p>
                     </div>
                 </div>
                 <div class="card-block">
@@ -36,11 +36,29 @@
                 </div>
             </div>
     
-            <div class="new-but">
-                <button>
+            <div *ngIf=visibleButton class="new-but">
+                <button (click)="createField()">
                     <cds-icon shape="note"></cds-icon> New conversation
-                </button>
-            </div> 
+                </button> 
+            </div>
+
+            <div class="input-field new-but"></div>
+
+            <!-- <input class="input-field new-but" type="text" id="formFields_2" size="45"> -->
+
+            <!-- <div *ngIf = hideButton>
+                <div [ngClass]="'.hide-button'" class="new-but">
+                    
+                </div>
+              </div> 	
+              <div *ngIf = !hideButton>
+                <div>Odd Number</div>
+              </div>
+
+            <button (click)="createField()">
+                <cds-icon shape="note"></cds-icon> New conversation
+            </button>    -->
+
         </div>
     </div>
 </div>

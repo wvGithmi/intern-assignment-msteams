@@ -18,3 +18,9 @@
     border: #943d24;
     color: #fffbf0;
 }
+
+.new-field {
+    position: absolute; 
+    bottom: 0;
+
+}
