@@ -19,8 +19,11 @@
     color: #fffbf0;
 }
 
-.new-field {
+.but {
     position: absolute; 
     bottom: 0;
-
+    background-color: none;
+    border: none;
+    margin-left: 20px;
+    height: 10px;
 }
