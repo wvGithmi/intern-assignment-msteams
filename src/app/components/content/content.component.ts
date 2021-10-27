@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-//import { UserdetailService } from '../shared/userdetail.service';
-
+import { NgForm } from '@angular/forms';
 import '@cds/core/icon/register.js';
 import '@cds/core/button/register.js';
 import { ClarityIcons, noteIcon, undoIcon } from '@cds/core/icon';
-//import { NgForm } from '@angular/forms';
+import { PostdetailService } from 'src/app/shared/postdetail.service';
 
 ClarityIcons.addIcons(undoIcon, noteIcon);
 
@@ -15,6 +14,8 @@ ClarityIcons.addIcons(undoIcon, noteIcon);
 })
 export class ContentComponent implements OnInit {
 
+  constructor(public service: PostdetailService) { }
+
   ngOnInit(): void {
   }
 
@@ -24,10 +25,7 @@ export class ContentComponent implements OnInit {
     let row = document.createElement('div');
     row.className = 'row';
     row.innerHTML = ` 
-      <input name="postContent" #postContent="ngModel"
-              [(ngModel)]="service.chatData.postContent" 
-              placeholder="Type a new message"
-              id="formFields_2" size="100" required>   
+        
     `;
 
     document.querySelector('.input-field')?.appendChild(row);
@@ -35,13 +33,13 @@ export class ContentComponent implements OnInit {
     this.visibleButton = !this.visibleButton;
   }
 
-  createCard() {
+  createPost(post: NgForm) {
     let row = document.createElement('div');
     row.className = 'row';
     row.innerHTML = `
     <div class="card card-background">
       <div class="card-header">
-        <b>Githmi Vithanawasam</b>
+        <b>{{post.name}}/b>
         <small> 8/2 9:15 AM</small>  
         <div class="card-text">
           <p>Good Morning!</p>
@@ -56,12 +54,17 @@ export class ContentComponent implements OnInit {
     </div>
     `;
  
+    this.service.publishPostDetail().subscribe(
+      res => {
+    
+      },
+      err => { console.log(err); }
+    )
+
     document.querySelector('.send-but')?.appendChild(row);
   }
 
 
-
-  //constructor(public service: UserdetailService) { }
 
   // onSubmit(form: NgForm) {
   //   this.service.postUserDetail().subscribe(

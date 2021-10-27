@@ -12,7 +12,7 @@ export class PostdetailService {
   readonly baseURL = 'http://localhost:28468/api/PostDetail'
   chatData: Postdetail = new Postdetail();
 
-  postPostDetail() {
+  publishPostDetail() {
     return this.http.post(this.baseURL, this.chatData);
   }
 }

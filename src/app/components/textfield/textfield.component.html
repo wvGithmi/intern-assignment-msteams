@@ -1,11 +1,6 @@
-<input name="postContent" #postContent="ngModel"
+<div>
+    <input name="postContent" #postContent="ngModel"
             [(ngModel)]="service.chatData.postContent" 
             placeholder="Type a new message"
             id="formFields_2" size="100" required> 
-
-<div class="clr-row but">
-    <div class="input-field" novalidate></div> 
-    <button *ngIf=!visibleButton (click)="createCard()">
-        <cds-icon shape="arrow" direction="right"></cds-icon>    
-    </button>   
 </div>
