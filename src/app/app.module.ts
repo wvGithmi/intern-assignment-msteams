@@ -12,6 +12,7 @@ import { ContentComponent } from './components/content/content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TextfieldComponent } from './components/textfield/textfield.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TextfieldComponent } from './components/textfield/textfield.component';
     SubnavComponent,
     LeftpanelComponent,
     ContentComponent,
-    TextfieldComponent
+    TextfieldComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,

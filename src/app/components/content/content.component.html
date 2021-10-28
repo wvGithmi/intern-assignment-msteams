@@ -1,6 +1,6 @@
 <!-- Posts Content-->
 <div class="content">
-    <div novalidate #post="ngForm" (submit)="createPost(post)">
+    <form novalidate #post="ngForm">
         <div class="clr-col-sm-12 clr-col-md-12">
             <div *ngIf=visibleButton class="new-but">
                 <button (click)="createField()">
@@ -8,22 +8,25 @@
                 </button> 
             </div>    
 
-            <div class="clr-row but">
-                <div *ngIf=!visibleButton class="input-field" novalidate>
+            <div *ngIf=!visibleButton class="clr-row but">
+                <div class="input-field">
                     <app-textfield></app-textfield>
                 </div> 
                 <button type="submit" (click)="createPost(post)">
                     <cds-icon shape="arrow" direction="right"></cds-icon>    
-                </button>   
+                </button>  
             </div>
 
             <div>
+                <div *ngIf=visibleButton>
+                    <!-- <app-post></app-post> -->
+                </div>
+                
                 <div class="send-but"></div>
             </div>
             
-
         </div>
-    </div>
+    </form>
 </div>
 
 

@@ -37,41 +37,31 @@ export class ContentComponent implements OnInit {
     let row = document.createElement('div');
     row.className = 'row';
     row.innerHTML = `
-    <div class="card card-background">
+    <div class="card card-background" *ngFor="let customer of customers;">
       <div class="card-header">
-        <b>{{post.name}}/b>
+        <b>Githmi</b><b>Vithanawasam</b>
         <small> 8/2 9:15 AM</small>  
         <div class="card-text">
-          <p>Good Morning!</p>
+          <p>{{}}</p>
         </div>
       </div>
       <div class="card-block">
         <div class="card-text">
           <cds-icon shape="undo"></cds-icon>
           Reply
+          <cds-icon shape="pencil" style="color: #2d2d2d; float: right;"></cds-icon>
         </div>
       </div>
     </div>
     `;
- 
+  
+    document.querySelector('.send-but')?.appendChild(row);
+
     this.service.publishPostDetail().subscribe(
       res => {
     
       },
       err => { console.log(err); }
     )
-
-    document.querySelector('.send-but')?.appendChild(row);
   }
-
-
-
-  // onSubmit(form: NgForm) {
-  //   this.service.postUserDetail().subscribe(
-  //     res => {
-
-  //     },
-  //     err => { console.log(err); }
-  //   )
-  // }
 }
