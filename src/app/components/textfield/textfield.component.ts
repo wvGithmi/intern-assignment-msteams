@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostdetailService } from '../../shared/postdetail.service';
+import { PostdetailService } from '../../shared/services/postdetail.service';
 
 @Component({
   selector: 'app-textfield',

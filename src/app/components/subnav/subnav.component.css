@@ -1,9 +1,9 @@
 .sub-navigation {
-    background-color: #943d24;
+    background-color: #ffffff;
 }
 
 .sub-navigation a {
-    color: #fffbf0;
+    color: #ff8702;
 }
 
 img {
@@ -17,17 +17,17 @@ img {
 
 .subnav-right cds-icon {
     margin: 10px;
-    color: #fffbf0;
+    color: #ff8702;
     border: none;
 }
 
 .subnav-right .meet-button {
-    border: #fffbf0;
-    background-color: #fffbf0;
+    border: #ff8702;
+    background-color: #ff8702;
 }
 
 .subnav-right .meet-button, .subnav-right .meet-button cds-icon {
-    color: #2d2d2d;
+    color: #ffffff;
 }
 
 .subnav-right .meet-button cds-icon {

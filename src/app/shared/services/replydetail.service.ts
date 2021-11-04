@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Replydetail } from './replydetail.model';
+import { Replydetail } from '../models/replydetail.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
