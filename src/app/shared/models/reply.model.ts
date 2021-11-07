@@ -1,4 +1,4 @@
-export class Replydetail {
+export class Reply {
     replyId: number;
     postId: number;
     replySenderId: number;

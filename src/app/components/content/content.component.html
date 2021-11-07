@@ -15,10 +15,8 @@
 
             <div>
                 <a *ngFor="let user of users">
-                    {{user.userFirstName}}
-                   
+                    {{user.userFirstName}} {{user.userLastName}} <br />
                 </a>
-                Githmi
             </div>
         
             <div *ngIf=!visibleButton class="clr-row but">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostdetailService } from '../../shared/services/postdetail.service';
+import { PostService } from '../../shared/services/post.service';
 
 @Component({
   selector: 'app-textfield',
@@ -8,7 +8,7 @@ import { PostdetailService } from '../../shared/services/postdetail.service';
 })
 export class TextfieldComponent implements OnInit {
 
-  constructor(public service: PostdetailService) { }
+  constructor(public service: PostService) { }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Replydetail } from '../models/replydetail.model';
+import { Reply } from '../models/reply.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,8 +9,8 @@ export class ReplydetailService {
 
     constructor(private http:HttpClient) { }
 
-    readonly baseURL = 'http://localhost:28468/api/ReplyDetail'
-    chatData: Replydetail = new Replydetail();
+    readonly baseURL = 'http://localhost:28468/api/Replies'
+    chatData: Reply = new Reply();
 
     postReplyDetail() {
       return this.http.post(this.baseURL, this.chatData);

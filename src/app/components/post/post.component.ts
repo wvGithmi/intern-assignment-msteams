@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+
+import { User } from 'src/app/shared/models/user.model';
+import { UserService } from 'src/app/shared/services/user.service';
+
 import {NgForm} from "@angular/forms";
 import '@cds/core/icon/register.js';
 import { ClarityIcons, pencilIcon } from '@cds/core/icon';
@@ -13,7 +17,8 @@ ClarityIcons.addIcons(pencilIcon);
 
 export class PostComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private userService: UserService) { }
 
   @Input() conversation: any;
   isReplying: boolean = false;
@@ -26,6 +31,17 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = this.conversation.postContent;
+    // this.getUsers();
+    this.getUser();
+  }
+
+  // getUsers(): void {
+  //   this.userService.getUsers().subscribe(users => this.users = users.slice(1, 5));
+  // }
+
+  getUser(): void {
+    const id = Number(this.getUser)
+    this.userService.getUser(id).subscribe(user => this.user = user);
   }
 
   handleReply() {

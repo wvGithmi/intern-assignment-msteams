@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Userdetail } from 'src/app/shared/models/userdetail.model';
-import { UserdetailService } from 'src/app/shared/services/userdetail.service';
+import { User } from 'src/app/shared/models/user.model';
+import { UserService } from 'src/app/shared/services/user.service';
 
 import { NgForm } from '@angular/forms';
 import '@cds/core/icon/register.js';
 import '@cds/core/button/register.js';
 import { ClarityIcons, noteIcon, undoIcon } from '@cds/core/icon';
-import { PostdetailService } from 'src/app/shared/services/postdetail.service';
+import { PostService } from 'src/app/shared/services/post.service';
 
 ClarityIcons.addIcons(undoIcon, noteIcon);
 
@@ -17,10 +17,10 @@ ClarityIcons.addIcons(undoIcon, noteIcon);
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  users: Userdetail[] = [];
+  users: User[] = [];
 
-  constructor(public service: PostdetailService,
-    private userdetailService: UserdetailService) { }
+  constructor(public service: PostService,
+    private userService: UserService) { }
 
   conversationList: any = [];
 
@@ -29,7 +29,7 @@ export class ContentComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.userdetailService.getUsers().subscribe(users => this.users = users.slice(1, 5));
+    this.userService.getUsers().subscribe(users => this.users = users.slice(1, 5));
   }
 
   visibleButton = true;

@@ -1,6 +1,11 @@
 <div class="post">
   <div class="card-header">
+    <!-- <b>Githmi</b><b>Vithanawasam </b> -->
     <b>Githmi</b><b>Vithanawasam </b>
+    
+    <a *ngFor="let user of users">
+      <b>{{user.userFirstName}} {{user.userLastName}} </b>
+    </a>
     <small>{{today | date: "dd/MM HH.mm a"}}</small>
     <div class="card-text">
       <p *ngIf="!isUpdating">{{message}}</p>
