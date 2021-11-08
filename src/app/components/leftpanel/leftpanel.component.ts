@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import '@cds/core/icon/register.js';
 import { ClarityIcons, cogIcon, employeeIcon, filter2Icon } from '@cds/core/icon';
 
 ClarityIcons.addIcons(filter2Icon, employeeIcon, cogIcon);

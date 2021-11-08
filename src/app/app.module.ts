@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TextfieldComponent } from './components/textfield/textfield.component';
 import { PostComponent } from './components/post/post.component';
+import '@cds/core/icon/register.js';
 
 @NgModule({
   declarations: [

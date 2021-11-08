@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { User } from 'src/app/shared/models/user.model';
-import { UserService } from 'src/app/shared/services/user.service';
-
 import {NgForm} from "@angular/forms";
 import '@cds/core/icon/register.js';
+import { PostService } from 'src/app/shared/services/post.service';
 import { ClarityIcons, pencilIcon } from '@cds/core/icon';
+import { Post } from 'src/app/shared/models/post.model';
 
 ClarityIcons.addIcons(pencilIcon);
 
@@ -16,9 +14,23 @@ ClarityIcons.addIcons(pencilIcon);
 })
 
 export class PostComponent implements OnInit {
+  // posts: Post[] = [];
+  objPosts: Post;
 
+  constructor(private postService: PostService) { }
 
-  constructor(private userService: UserService) { }
+  ngOnInit(): void {
+    this.message = this.conversation.postContent;
+
+  }
+
+  // addPost(content: any): void {
+  //   if (!content) { return; }
+  //   this.postService.addPost({ content })
+  //     .subscribe(Post => {
+  //       this.posts.push(Post);
+  //     });
+  // }
 
   @Input() conversation: any;
   isReplying: boolean = false;
@@ -28,21 +40,6 @@ export class PostComponent implements OnInit {
   newMessage: string = "";
   replyList: any = [];
   replyMessage: string = "";
-
-  ngOnInit(): void {
-    this.message = this.conversation.postContent;
-    // this.getUsers();
-    this.getUser();
-  }
-
-  // getUsers(): void {
-  //   this.userService.getUsers().subscribe(users => this.users = users.slice(1, 5));
-  // }
-
-  getUser(): void {
-    const id = Number(this.getUser)
-    this.userService.getUser(id).subscribe(user => this.user = user);
-  }
 
   handleReply() {
     this.isReplying = true;
@@ -62,7 +59,6 @@ export class PostComponent implements OnInit {
     this.message = this.newMessage;
     this.isUpdating = false;
   }
-
 }
 
 

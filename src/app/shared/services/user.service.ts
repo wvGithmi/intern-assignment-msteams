@@ -10,11 +10,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class UserService {
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private http: HttpClient, private messageService: MessageService) { }
 
-  private chatUrl = 'http://localhost:5000/api/Users'; // URL to server
-  
+  private usersUrl = 'http://localhost:5000/api/Users'; // URL to server
+
   private log(message: string) {
     this.messageService.add(`UserService: $(message)`);
   }
@@ -28,43 +27,20 @@ export class UserService {
 
   /* GET users from the server */
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.chatUrl)
+    return this.http.get<User[]>(this.usersUrl)
       .pipe(tap(_ => this.log('fetched uesrs')),
       catchError(this.handleError<User[]>('getUsers', []))
     );
   }
 
   /* GET user by id from the server */
-  getUser(id: number): Observable<User> {
-    // const url = `${this.chatUrl}/${id}`;
-    const url = `${this.chatUrl}/${id}`;
-    return this.http.get<User>(url)
-      .pipe(tap(_ => this.log(`fetched user id=${id}`)),
-      catchError(this.handleError<User>(`getUser id=${id}`))
-    );
-  }
-
-
-  // httpOptions = {
-  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  // };
-
-  
-
-
-
-
-  
-
-  // getUsers(): Userdetail[] {
-  //   return Userdetail;
-  // }
-
-  //readonly baseURL = 'http://localhost:5000/api/UserDetail'
-  // chatData: Userdetail = new Userdetail();
-
-  // postUserDetail() {
-  //   return this.http.post(this.baseURL,this.chatData);
+  // getUser(id: number): Observable<User> {
+  //   console.log(id);
+  //   const url = `${this.usersUrl}/${id}`;
+  //   return this.http.get<User>(url)
+  //     .pipe(tap(_ => this.log(`fetched user id=${id}`)),
+  //     catchError(this.handleError<User>(`getUser id=${id}`))
+  //   );
   // }
 }
 

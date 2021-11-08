@@ -12,16 +12,10 @@
                     <cds-icon shape="note"></cds-icon> New conversation
                 </button>
             </div>
-
-            <div>
-                <a *ngFor="let user of users">
-                    {{user.userFirstName}} {{user.userLastName}} <br />
-                </a>
-            </div>
         
             <div *ngIf=!visibleButton class="clr-row but">
                 <div class="input-field">
-                    <input name="postContent" [(ngModel)]="service.chatData.postContent"
+                    <input name="content" [(ngModel)]="service.chatData.content"
                          placeholder="Type a new message" id="formFields_2" size="100" required>
                 </div>
                 <button type="submit" (click)="createPost(post.value)">

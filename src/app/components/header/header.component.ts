@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import '@cds/core/icon/register.js';
 import { ClarityIcons, applicationsIcon, ellipsisHorizontalIcon, userIcon } from '@cds/core/icon';
 
 ClarityIcons.addIcons(applicationsIcon, ellipsisHorizontalIcon, userIcon);

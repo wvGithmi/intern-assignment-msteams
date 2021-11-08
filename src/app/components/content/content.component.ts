@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from 'src/app/shared/services/user.service';
-
+import { PostService } from 'src/app/shared/services/post.service';
 import { NgForm } from '@angular/forms';
 import '@cds/core/icon/register.js';
 import '@cds/core/button/register.js';
 import { ClarityIcons, noteIcon, undoIcon } from '@cds/core/icon';
-import { PostService } from 'src/app/shared/services/post.service';
+import { Post } from 'src/app/shared/models/post.model';
+
 
 ClarityIcons.addIcons(undoIcon, noteIcon);
 
@@ -19,13 +19,16 @@ ClarityIcons.addIcons(undoIcon, noteIcon);
 export class ContentComponent implements OnInit {
   users: User[] = [];
 
-  constructor(public service: PostService,
-    private userService: UserService) { }
-
   conversationList: any = [];
+
+  constructor(public service: PostService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUsers();
+    this.service.getPosts().subscribe((posts) => {
+      console.log(posts)
+      this.conversationList = [...posts];
+    })
   }
 
   getUsers(): void {
@@ -46,42 +49,19 @@ export class ContentComponent implements OnInit {
     this.visibleButton = !this.visibleButton;
   }
 
-  createPost(post: NgForm) {
+  createPost(postData: NgForm) {
+    console.log(postData);
+    const { content } =  postData as any;
+    var post = new Post();
+
+    post.createdBy = 1;
+    post.createdTime = new Date().toISOString();
+    post.content = content;
     console.log(post);
+
+    this.service.addPost(post).subscribe(data => {
+      console.log(data);
+    })
     this.conversationList.push(post);
   }
-
 }
-
-
-
-  //   let row = document.createElement('div');
-  //   row.className = 'row';
-  //   row.innerHTML = `
-  //   <div class="card card-background" *ngFor="let customer of customers;">
-  //     <div class="card-header">
-  //       <b>Githmi</b><b>Vithanawasam</b>
-  //       <small> 8/2 9:15 AM</small>  
-  //       <div class="card-text">
-  //         <p>{{}}</p>
-  //       </div>
-  //     </div>
-  //     <div class="card-block">
-  //       <div class="card-text">
-  //         <cds-icon shape="undo"></cds-icon>
-  //         Reply
-  //         <cds-icon shape="pencil" style="color: #2d2d2d; float: right;"></cds-icon>
-  //       </div>
-  //     </div>
-  //   </div>
-  //   `;
-  
-  //   document.querySelector('.send-but')?.appendChild(row);
-
-  //   this.service.publishPostDetail().subscribe(
-  //     res => {
-    
-  //     },
-  //     err => { console.log(err); }
-  //   )
-  // }
