@@ -1,7 +1,7 @@
 .content {
-    /* background-color: #e4ddf4; */
     height: 90vh;
-    width: max-content; 
+    /* width: 1250px;  */
+    /* overflow: scroll; */
 }
 
 .card-background {

@@ -32,16 +32,6 @@ export class UserService {
       catchError(this.handleError<User[]>('getUsers', []))
     );
   }
-
-  /* GET user by id from the server */
-  // getUser(id: number): Observable<User> {
-  //   console.log(id);
-  //   const url = `${this.usersUrl}/${id}`;
-  //   return this.http.get<User>(url)
-  //     .pipe(tap(_ => this.log(`fetched user id=${id}`)),
-  //     catchError(this.handleError<User>(`getUser id=${id}`))
-  //   );
-  // }
 }
 
 

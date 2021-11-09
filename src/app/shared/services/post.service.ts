@@ -32,18 +32,21 @@ export class PostService {
   }
 
   // POST a new post to the server
-  // addPost(post: Post): Observable<Post> {
-  //   return this.http.post<Post>(this.postsUrl, post, this.httpOptions).pipe(
-  //     tap((newPost: Post) => this.log(`added post w/ id=${newPost.id}`)),
-  //     catchError(this.handleError<Post>('addPost'))
-  //   );
-  // }
-
   addPost(post: Post): Observable<any> {
     return this.httpClient.post(this.postsUrl, post);
   }
 
+  // GET all posts from the server
   getPosts(): Observable<any> {
     return this.httpClient.get(this.postsUrl);
+  }
+
+  // UPDATE posts with edit messages
+  updatePost(post: Post): Observable<any> {
+    const url = `${this.postsUrl}/${post.id}`;
+    return this.httpClient.put(url, this.httpOptions).pipe(
+      tap(_ => this.log(`updated post id=${post.id}`)),
+      catchError(this.handleError<any>('updatePost'))
+    );
   }
 }

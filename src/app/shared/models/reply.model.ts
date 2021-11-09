@@ -2,6 +2,6 @@ export class Reply {
     replyId: number;
     postId: number;
     replySenderId: number;
-    replyTime: Date;
+    replyTime: string;
     replyContent: string;
 }

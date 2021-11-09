@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import { NgForm } from "@angular/forms";
 import '@cds/core/icon/register.js';
-import { PostService } from 'src/app/shared/services/post.service';
-import { ClarityIcons, pencilIcon } from '@cds/core/icon';
+import { ClarityIcons, pencilIcon, trashIcon } from '@cds/core/icon';
 import { Post } from 'src/app/shared/models/post.model';
+import { PostService } from 'src/app/shared/services/post.service';
 
-ClarityIcons.addIcons(pencilIcon);
+ClarityIcons.addIcons(pencilIcon, trashIcon);
 
 @Component({
   selector: 'app-post',
@@ -14,23 +14,7 @@ ClarityIcons.addIcons(pencilIcon);
 })
 
 export class PostComponent implements OnInit {
-  // posts: Post[] = [];
   objPosts: Post;
-
-  constructor(private postService: PostService) { }
-
-  ngOnInit(): void {
-    this.message = this.conversation.postContent;
-
-  }
-
-  // addPost(content: any): void {
-  //   if (!content) { return; }
-  //   this.postService.addPost({ content })
-  //     .subscribe(Post => {
-  //       this.posts.push(Post);
-  //     });
-  // }
 
   @Input() conversation: any;
   isReplying: boolean = false;
@@ -40,6 +24,13 @@ export class PostComponent implements OnInit {
   newMessage: string = "";
   replyList: any = [];
   replyMessage: string = "";
+
+  constructor(private postService: PostService) { }
+
+  ngOnInit(): void {
+    this.message = this.conversation.content;
+    //this.today = this.objPosts.createdTime;
+  }
 
   handleReply() {
     this.isReplying = true;
@@ -51,14 +42,26 @@ export class PostComponent implements OnInit {
     this.isReplying = false;
   }
 
-  handleUpdate() {
+  // handleUpdate() {
+  //   this.isUpdating = true;
+  // }
+
+  handleUpdate(): void {
     this.isUpdating = true;
+
+    var post = new Post();
+    if (post) {
+      this.postService.updatePost(post).subscribe();
+    }
   }
 
   saveUpdate(value: NgForm) {
+    console.log(value);
     this.message = this.newMessage;
     this.isUpdating = false;
+    console.log(this.message);
   }
+
 }
 
 

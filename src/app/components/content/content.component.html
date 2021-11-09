@@ -5,7 +5,7 @@
         <app-post [conversation]="conversation"></app-post>
     </div>
 
-    <form novalidate #post="ngForm">
+    <form novalidate #postData="ngForm">
         <div class="clr-col-sm-12 clr-col-md-12">
             <div *ngIf=visibleButton class="new-but">
                 <button (click)="createField()">
@@ -15,10 +15,11 @@
         
             <div *ngIf=!visibleButton class="clr-row but">
                 <div class="input-field">
-                    <input name="content" [(ngModel)]="service.chatData.content"
+                    <input name="content" [(ngModel)]="postService.chatData.content"
                          placeholder="Type a new message" id="formFields_2" size="100" required>
                 </div>
-                <button type="submit" (click)="createPost(post.value)">
+                <button type="submit" (click)="createPost(postData.value);">
+                <!-- <button type="submit" (click)="createPost(postData.value); postData.value=''"> -->
                     <cds-icon shape="angle" direction="right"></cds-icon>
                 </button>
             </div>
