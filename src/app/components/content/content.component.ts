@@ -16,7 +16,7 @@ ClarityIcons.addIcons(undoIcon, noteIcon);
 export class ContentComponent implements OnInit {
   users: User[] = [];
 
-  conversationList: any = [];
+  conversationList: Post[] = [];
 
   constructor(public postService: PostService, private userService: UserService) { }
 
@@ -26,9 +26,32 @@ export class ContentComponent implements OnInit {
   }
 
   reloadConversationFromDb() {
+    console.log("Fire callback")
     this.postService.getPosts().subscribe((posts) => {
       console.log(posts)
       this.conversationList = [...posts];
+    })
+  }
+
+  deletePost(post: Post) {
+    this.postService.deletePost(post).subscribe(() => {
+     this.reloadConversationFromDb();
+    });
+    console.log(this.conversationList);
+  }
+
+  createPost(postData: NgForm) {
+    const { content } =  postData as any;
+    var post = new Post();
+
+    post.createdBy = 1;
+    post.createdTime = new Date();
+    post.content = content;
+
+    this.postService.addPost(post).subscribe(data => {
+      // post.createdTime.toISOString
+      // console.log(post.createdTime);
+      this.conversationList.push(data);
     })
   }
 
@@ -46,23 +69,5 @@ export class ContentComponent implements OnInit {
     document.querySelector('.input-field')?.appendChild(row);
 
     this.visibleButton = !this.visibleButton;
-  }
-
-  createPost(postData: NgForm) {
-    // console.log(postData);
-    const { content } =  postData as any;
-    var post = new Post();
-
-    post.createdBy = 1;
-    post.createdTime = new Date();
-    post.content = content;
-    // console.log(post);
-
-    this.postService.addPost(post).subscribe(data => {
-      // post.createdTime.toISOString
-      // console.log(post.createdTime);
-      // console.log(data);
-      this.conversationList.push(data);
-    })
   }
 }

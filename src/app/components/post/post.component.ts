@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import '@cds/core/icon/register.js';
 import { ClarityIcons, pencilIcon, trashIcon } from '@cds/core/icon';
 import { Post } from 'src/app/shared/models/post.model';
 import { PostService } from 'src/app/shared/services/post.service';
@@ -14,10 +13,11 @@ ClarityIcons.addIcons(pencilIcon, trashIcon);
 })
 
 export class PostComponent implements OnInit {
-  objPosts: Post;
+  objPosts: Post[] = [];
 
   @Input() conversation: any;
-  @Input() reloadConversationFromDb: void;
+  @Output() deletePostEvent = new EventEmitter<Post>();
+  
   isReplying: boolean = false;
   today: Date = new Date();
   isUpdating: boolean = false;
@@ -49,11 +49,6 @@ export class PostComponent implements OnInit {
 
   handleUpdate(): void {
     this.isUpdating = true;
-
-    var post = new Post();
-    if (post) {
-      this.postService.updatePost(post).subscribe();
-    }
   }
 
   saveUpdate(value: NgForm) {
@@ -61,13 +56,22 @@ export class PostComponent implements OnInit {
     this.message = this.newMessage;
     this.isUpdating = false;
     console.log(this.message);
+
+    let post2 = {
+      "id": this.conversation.id,
+      "createdBy": this.conversation.createdBy, 
+      "createdTime": new Date(),
+      "content": "string"
+    }
+
+    console.log("Click update")
+    this.postService.updatePost(post2).subscribe();
   }
 
-  handledelete() {
-    this.postService.deletePost(this.conversation);
-    this.reloadConversationFromDb;
+  handleDelete() {
+    console.log("Clck delete button");
+    this.deletePostEvent.emit(this.conversation);
   }
-
 }
 
 

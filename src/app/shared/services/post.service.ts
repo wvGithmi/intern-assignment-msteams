@@ -20,17 +20,6 @@ export class PostService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private log(message: string) {
-    this.messageService.add(`PostService: $(message)`);
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error); 
-      return of(result as T);
-    };
-  }
-
   // POST a new post to the server
   addPost(post: Post): Observable<any> {
     return this.httpClient.post(this.postsUrl, post);
@@ -43,17 +32,15 @@ export class PostService {
 
   // UPDATE posts with edit messages
   updatePost(post: Post): Observable<any> {
+    console.log(post);
     const url = `${this.postsUrl}/${post.id}`;
-    return this.httpClient.put(url, this.httpOptions).pipe(
-      tap(_ => this.log(`updated post id=${post.id}`)),
-      catchError(this.handleError<any>('updatePost'))
-    );
+    return this.httpClient.put(url, post, this.httpOptions);
   }
 
-    // Delete a post from the server
-    deletePost(post: Post): void {
-      const url =  `${this.postsUrl}/${post.id}`;
-      console.log(post);
-      this.httpClient.delete(url).subscribe();
-    }
+  // Delete a post from the server
+  deletePost(post: Post): Observable<any> {
+    const url = `${this.postsUrl}/${post.id}`;
+    console.log(post);
+    return this.httpClient.delete(url, this.httpOptions);
+  }
 }

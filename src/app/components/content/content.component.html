@@ -1,8 +1,8 @@
-<!-- Posts Content-->
-<div class="content">
+<!-- Content -->
+<div class="content"  >
 
     <div class=" card-background" *ngFor="let conversation of conversationList;">
-        <app-post [conversation]="conversation" ></app-post>
+        <app-post [conversation]="conversation" (deletePostEvent)="deletePost($event)" ></app-post>
     </div>
 
     <form novalidate #postData="ngForm">
@@ -19,7 +19,6 @@
                          placeholder="Type a new message" id="formFields_2" size="100" required>
                 </div>
                 <button type="submit" (click)="createPost(postData.value);">
-                <!-- <button type="submit" (click)="createPost(postData.value); postData.value=''"> -->
                     <cds-icon shape="angle" direction="right"></cds-icon>
                 </button>
             </div>

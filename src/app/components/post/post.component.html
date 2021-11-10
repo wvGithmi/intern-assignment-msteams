@@ -1,3 +1,4 @@
+<!-- Post -->
 <div class="post">
   <div class="card-header">
     <b>Githmi</b><b>Vithanawasam </b>
@@ -10,7 +11,6 @@
         <button *ngIf="isUpdating" type="submit" >
           <cds-icon shape="angle" direction="right"></cds-icon>
         </button>
-     
       </form>
     </div>
   </div>
@@ -29,7 +29,7 @@
       </span>
 
       <cds-icon (click)="handleUpdate()" shape="pencil" style="color: #2d2d2d; float: right;"></cds-icon>
-      <cds-icon (click)="handledelete()" shape="trash" style="color: #2d2d2d; float: right;"></cds-icon>
+      <cds-icon (click)="handleDelete()" shape="trash" style="color: #2d2d2d; float: right; margin-right: 10px;"></cds-icon>
     </div>
   </div>
 
