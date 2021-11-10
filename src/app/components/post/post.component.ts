@@ -17,6 +17,7 @@ export class PostComponent implements OnInit {
   objPosts: Post;
 
   @Input() conversation: any;
+  @Input() reloadConversationFromDb: void;
   isReplying: boolean = false;
   today: Date = new Date();
   isUpdating: boolean = false;
@@ -38,7 +39,7 @@ export class PostComponent implements OnInit {
 
   Reply(value: NgForm) {
     console.log(value);
-    this.replyList.push({time: new Date(), message:this.replyMessage});
+    this.replyList.push({ time: new Date(), message: this.replyMessage });
     this.isReplying = false;
   }
 
@@ -60,6 +61,11 @@ export class PostComponent implements OnInit {
     this.message = this.newMessage;
     this.isUpdating = false;
     console.log(this.message);
+  }
+
+  handledelete() {
+    this.postService.deletePost(this.conversation);
+    this.reloadConversationFromDb;
   }
 
 }

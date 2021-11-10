@@ -22,6 +22,10 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.reloadConversationFromDb();
+  }
+
+  reloadConversationFromDb() {
     this.postService.getPosts().subscribe((posts) => {
       console.log(posts)
       this.conversationList = [...posts];

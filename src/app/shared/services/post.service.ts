@@ -49,4 +49,11 @@ export class PostService {
       catchError(this.handleError<any>('updatePost'))
     );
   }
+
+    // Delete a post from the server
+    deletePost(post: Post): void {
+      const url =  `${this.postsUrl}/${post.id}`;
+      console.log(post);
+      this.httpClient.delete(url).subscribe();
+    }
 }
