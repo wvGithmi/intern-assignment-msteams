@@ -1,0 +1,93 @@
+<!-- Post -->
+<!-- <div class="post">
+  <div class="card-header">
+    <b>Githmi</b><b>Vithanawasam </b>
+    <small>{{today | date: "dd/MM HH.mm a"}}</small>
+    <div class="card-text">
+      <p *ngIf="!isUpdating">{{message}}</p>
+      <form #updateMessage="ngForm" (submit)="saveUpdate(updateMessage.value)">
+        <input *ngIf="isUpdating" value="{{message}}" name="newMessage" [(ngModel)]="newMessage" placeholder="Type your message" required/>
+        
+        <button *ngIf="isUpdating" type="submit" >
+          <cds-icon shape="angle" direction="right"></cds-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card-block">
+    <div *ngFor="let element of replyList">
+      <strong>Irosha Wijesinghe </strong>
+      <small direction="right">{{element.time | date: "dd/MM HH.mm a"}}</small><br />
+      <span>{{element.message}}</span><br /><br />
+    </div>
+    
+    <div *ngIf="!isReplying" class="card-text">
+      <span (click)="handleReply()">
+        <cds-icon shape="undo"></cds-icon>
+        Reply
+      </span>
+
+      <cds-icon (click)="handleUpdate()" shape="pencil" style="color: #2d2d2d; float: right;"></cds-icon>
+      <cds-icon (click)="handleDelete()" shape="trash" style="color: #2d2d2d; float: right; margin-right: 10px;"></cds-icon>
+    </div>
+  </div>
+
+  <div *ngIf="isReplying" class="card-text">
+    <form novalidate #replyForm="ngForm">
+      <input name="replyMessage" [(ngModel)]="replyMessage" placeholder="Type your reply message" id="formFields_2" size="100" required>
+      <button type="submit" (click)="Reply(replyForm.value)">
+        <cds-icon shape="angle" direction="right"></cds-icon>
+      </button>
+    </form>
+  </div>
+</div> -->
+
+<div class="clr-row">
+  <div class="clr-col-lg-1 clr-col-md-2 clr-col-3 ">
+    <div class="user-icon-div margin-top">{{fullName | userIconLetter}}</div>
+  </div>
+  <div class="clr-col-lg-10 clr-col-md-10 clr-col-9">
+    <div class="card">
+      <div class="card-header">
+        <small><strong>{{fullName}} </strong>{{createdTime | date: "dd/MM/yyy, HH.mm a"}}</small>
+        <div class="card-text">
+          <span *ngIf="!isUpdating">{{content}}</span>
+          <form *ngIf="isUpdating" [formGroup]="updateConversationForm" (ngSubmit)="handleSubmitUpdatedContent()"
+                clrForm>
+            <input formControlName="updatedConversation" placeholder="Updated Message" clrInput required/>
+            <button type="submit" class="btn submit-icon">
+              <cds-icon size="38" class="submit-icon" shape="arrow" direction="right"></cds-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card-block">
+        <div  class="clr-row" *ngFor="let element of replyList">
+          <div class="clr-col-lg-1 clr-col-md-2 clr-col-3 ">
+            <div class="user-icon-div">{{fullName | userIconLetter}}</div>
+          </div>
+          <div class="clr-col-lg-10 clr-col-md-10 clr-col-9">
+            <small><strong>{{fullName}} </strong>{{createdTime | date: "dd/MM HH.mm a"}}</small><br/>
+            <span>{{element.content}}</span><br/><br/>
+          </div>
+
+        </div>
+        <div *ngIf="!isReplying" class="card-text">
+          <span (click)="toggleReply()"><cds-icon shape="undo"></cds-icon>Reply</span>
+          <cds-icon (click)="toggleUpdate()" shape="pencil" style="color: #2d2d2d; float: right;"></cds-icon>
+        </div>
+        <form *ngIf="isReplying" [formGroup]="replyForm" (ngSubmit)="handleSubmitReply()" clrForm>
+          <input formControlName="replyContent" placeholder="Reply" clrInput required/>
+          <button type="submit" class="btn submit-icon">
+            <cds-icon size="38" class="submit-icon" shape="arrow" direction="right"></cds-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

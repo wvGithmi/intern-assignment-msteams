@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { angleIcon, ClarityIcons, errorStandardIcon, plusIcon, videoCameraIcon } from '@cds/core/icon';
-
-ClarityIcons.addIcons(plusIcon, angleIcon, videoCameraIcon, errorStandardIcon);
-
 @Component({
   selector: 'app-subnav',
   templateUrl: './subnav.component.html',

@@ -1,0 +1,42 @@
+.side-link {
+    padding: 0;
+    display: block;
+    width: 65px;
+    height: 55px;
+    text-align: center;
+}
+
+.side-link small {
+    margin-top: -15px;
+    display: block;
+    font-size: 9.5px;
+}
+  
+.side-link:hover{
+    background-color: #ffffff !important;
+    color: #ff8702;
+}
+
+.side-link.active {
+    background-color: #eaeaea;
+    border-left: 3px solid #ff8702;
+    margin-left: 4px;
+}
+
+/* .navigation {
+    width: max-content;
+    height: 90vh;
+    background-color: #ff8702;
+}
+
+.navigation .nav-icons {
+    margin: 0 auto;
+}
+
+div .icon-text, div a cds-icon {
+    color: #2d2d2d;
+}
+
+.icon-text {
+    font-size: 10px;
+} */

@@ -1,0 +1,38 @@
+.new-conversation-div {
+    position: fixed;
+    bottom: 0;
+    right: -35px;
+    background-color: whitesmoke;
+    padding: 20px 10px 0 20px;
+}
+
+.new-conversation-div button {
+    background-color: #ff8702;
+    border-color: #ff8702;
+    margin-left: 5.5vw;
+    font-size: 10px;
+    margin-bottom: 30px;
+}
+  
+.new-conversation-div input {
+    width: 95%;
+    float: left;
+    margin-bottom: 15px;
+}
+  
+.new-conversation-div .submit-icon {
+    position: fixed;
+    right: 5.5vw;
+    bottom: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+    color: #ff8702;
+}
+
+.conversations{
+    padding-bottom: 150px;
+}

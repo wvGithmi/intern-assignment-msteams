@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClarityIcons, applicationsIcon, ellipsisHorizontalIcon, userIcon } from '@cds/core/icon';
 
 ClarityIcons.addIcons(applicationsIcon, ellipsisHorizontalIcon, userIcon);
+import '@cds/core/search/register.js';
 
 @Component({
   selector: 'app-header',

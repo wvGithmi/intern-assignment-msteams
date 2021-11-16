@@ -1,0 +1,26 @@
+<div class="text-center" style="padding-top: 150px">
+    <!-- <img width="280" alt="teams page image" src="/src/assets/teams-page.png"/> -->
+</div>
+
+<div class="text-center ">
+    <h4>Let's get the conversation started</h4>
+</div>
+
+<div class="conversations">
+    <div *ngFor="let conversation of conversationList;">
+      <post  [conversation]="conversation"></post>
+    </div>  
+</div>
+  
+<div class="new-conversation-div clr-col-8 clr-col-md-9">
+    <button *ngIf="!isShowingNewConversationForm" (click)="toggleToNewConversationForm()" class="btn btn-primary"><cds-icon shape="note"></cds-icon> New Conversation</button>
+    <div *ngIf="isShowingNewConversationForm" class="clr-row">
+        <div class="clr-col-lg-1 clr-col-md-2 clr-col-3 "></div>
+        <form  [formGroup]="form" (ngSubmit)="submit()" clrForm class="card clr-col-lg-10 clr-col-9">
+            <input formControlName="newConversation" placeholder="Start a New Conversation. Type @ to mention someone" clrInput required />
+            <button type="submit" class="btn submit-icon">
+                <cds-icon size="38" class="submit-icon"  shape="arrow" direction="right"></cds-icon>
+            </button>
+        </form>
+    </div>
+</div>

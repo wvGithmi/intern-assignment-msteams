@@ -1,4 +1,12 @@
-<!-- Navigation Bar -->
+<clr-vertical-nav>
+    <a class="side-link" [routerLink]="link.routerLink" routerLinkActive="active" clrVerticalNavLink *ngFor="let link of sideLinks">
+        <cds-icon  size="24" clrVerticalNavIcon [attr.shape]="link.icon"></cds-icon>
+
+      <small>{{link.label}}</small>
+    </a>
+</clr-vertical-nav>
+
+<!-- Navigation Bar
 <clr-vertical-nav class="navigation">
     <div class="nav-icons">
         <div>
@@ -66,4 +74,4 @@
             </div>
         </div>
     </div>   
-</clr-vertical-nav>
+</clr-vertical-nav> -->

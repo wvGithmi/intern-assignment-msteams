@@ -1,4 +1,4 @@
-.sub-navigation {
+/* .sub-navigation {
     background-color: #ffffff;
 }
 
@@ -28,6 +28,24 @@ img {
 
 .subnav-right .meet-button, .subnav-right .meet-button cds-icon {
     color: #ffffff;
+} */
+
+.sub-header{
+    background-color: whitesmoke;
+    position: fixed;
+    width: 100%;
+    border-bottom: 0.5px solid lightgray;
+    height: 45px;
+}
+
+.sub-header a.nav-text, span {
+    color: gray;
+    padding: 10px 10px 0 10px;
+}
+  
+.sub-header .branding{
+    padding: 0;
+    margin: -10px;
 }
 
 

@@ -1,0 +1,55 @@
+/* .post {
+    background-color: #e2b685; 
+    margin: 20px;
+}
+
+div card-block cds-icon {
+    color: #2d2d2d;
+} */
+
+
+.user-icon-div {
+    background-color: #c9c9ee;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #ff8702;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    float: right;
+    margin-right: 5px;
+} 
+.margin-top {
+    margin-top: 30px; 
+}
+  
+small {
+    font-size: 13px;
+} 
+strong {
+    font-weight: 700;
+}
+ 
+form {
+    display: block;
+}
+form input{
+    width: 90%;
+}
+form button{
+    float: right;
+}
+
+.submit-icon {
+   float: right;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+    color: #ff8702;
+    margin-top: -20px;
+}
