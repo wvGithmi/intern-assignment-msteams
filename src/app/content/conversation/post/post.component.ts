@@ -1,109 +1,3 @@
-// import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-// import { NgForm } from "@angular/forms";
-// import { ClarityIcons, pencilIcon, trashIcon } from '@cds/core/icon';
-// import { Post } from 'src/app/shared/models/post.model';
-// import { PostService } from 'src/app/shared/services/post.service';
-
-// ClarityIcons.addIcons(pencilIcon, trashIcon);
-
-// @Component({
-//   selector: 'app-post',
-//   templateUrl: './post.component.html',
-//   styleUrls: ['./post.component.css']
-// })
-
-// export class PostComponent implements OnInit {
-//   //objPosts: Post[] = [];
-
-//   @Input() conversation: any;
-//   @Output() deletePostEvent = new EventEmitter<Post>();
-  
-//   isReplying: boolean = false;
-//   today: Date = new Date();
-//   isUpdating: boolean = false;
-//   message: string = "";
-//   newMessage: string = "";
-//   replyList: any = [];
-//   replyMessage: string = "";
-
-//   constructor(private postService: PostService) { }
-
-//   ngOnInit(): void {
-//     this.message = this.conversation.content;
-//     //this.today = this.objPosts.createdTime;
-//   }
-
-//   // Reply
-//   handleReply() {
-//     this.isReplying = true;
-//   }
-
-//   Reply(value: NgForm) {
-//     console.log(value);
-//     this.replyList.push({ time: new Date(), message: this.replyMessage });
-//     this.isReplying = false;
-//   }
-
-//   // Delete
-//   handleDelete() {
-//     console.log("Click delete icon");
-//     this.deletePostEvent.emit(this.conversation);
-//   }
-
-//   // Update
-//   handleUpdate() {
-//     this.isUpdating = true;
-//   }
-
-//   saveUpdate(value: NgForm) {
-//     console.log(value);
-//     this.message = this.newMessage;
-//     this.isUpdating = false;
-//     console.log(this.message);
-
-//     const { editContent } = value as any;
-//     let post = {
-//       "id": this.conversation.id,
-//       "createdBy": 1,
-//       "createdTime": new Date(),
-//       "content": editContent
-//     }
-
-//     console.log("Click update");
-//     this.postService.updatePost(post).subscribe();
-
-//     // let post2 = {
-//     //   "id": this.conversation.id,
-//     //   "createdBy": this.conversation.createdBy, 
-//     //   "createdTime": new Date(),
-//     //   "content": value
-//     // }
-
-//     // console.log("Click update")
-//     // this.postService.updatePost(post2).subscribe();
-// //------------------------
-//     // const { content } =  postData as any;
-//     // var post = new Post();
-
-//     // post.createdBy = 1;
-//     // post.createdTime = new Date();
-//     // post.content = content;
-
-//     // this.postService.addPost(post).subscribe(data => {
-//     //   // post.createdTime.toISOString
-//     //   // console.log(post.createdTime);
-//     //   this.conversationList.push(data);
-//     // })
-//   }
-
-//   // save(): void {
-//   //   if (this.hero) {
-//   //     this.heroService.updateHero(this.hero)
-//   //       .subscribe(() => this.goBack());
-//   //   }
-//   // }
-// }
-
 import { Component, Input, OnInit } from '@angular/core';
 import { arrowIcon, ClarityIcons, pencilIcon, undoIcon } from '@cds/core/icon';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -184,7 +78,7 @@ export class PostComponent implements OnInit {
         this.conversation?.createdBy ? this.conversation?.createdBy : 0,
         new Date(), this.updateConversationForm.value.updatedConversation);
 
-      this.postService.updatePost(updatedPost);
+      this.postService.updatePost(updatedPost).subscribe();
       this.updateConversationForm.reset();
     }
   }

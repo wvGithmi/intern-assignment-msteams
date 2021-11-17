@@ -1,35 +1,3 @@
-/* .sub-navigation {
-    background-color: #ffffff;
-}
-
-.sub-navigation a {
-    color: #ff8702;
-}
-
-img {
-    margin-right: 20px;
-}
-
-.subnav-right {
-    position:absolute;
-    right: 0;
-}
-
-.subnav-right cds-icon {
-    margin: 10px;
-    color: #ff8702;
-    border: none;
-}
-
-.subnav-right .meet-button {
-    border: #ff8702;
-    background-color: #ff8702;
-}
-
-.subnav-right .meet-button, .subnav-right .meet-button cds-icon {
-    color: #ffffff;
-} */
-
 .sub-header{
     background-color: whitesmoke;
     position: fixed;

@@ -1,38 +1,5 @@
-<!-- Content
-<div class="content"  >
-
-    <div class=" card-background" *ngFor="let conversation of conversationList;">
-        <app-post [conversation]="conversation" (deletePostEvent)="deletePost($event)" ></app-post>
-    </div>
-
-    <form novalidate #postData="ngForm">
-        <div class="clr-col-sm-12 clr-col-md-12">
-            <div *ngIf=visibleButton class="new-but">
-                <button (click)="createField()">
-                    <cds-icon shape="note"></cds-icon> New conversation
-                </button>
-            </div>
-        
-            <div *ngIf=!visibleButton class="clr-row but">
-                <div class="input-field">
-                    <input name="content" [(ngModel)]="postService.chatData.content"
-                         placeholder="Type a new message" id="formFields_2" size="100" required>
-                </div>
-                <button type="submit" (click)="createPost(postData.value);">
-                    <cds-icon shape="angle" direction="right"></cds-icon>
-                </button>
-            </div>
-
-            <div>
-                <div *ngIf=visibleButton></div>
-                <div class="send-but"></div>
-            </div>     
-        </div>
-    </form>
-</div>
- -->
-
- <div class="clr-row">
+<!-- Content -->
+<div class="clr-row">
     <div class="clr-col-4 clr-col-md-3 left-panel-div">
       <span>Join or create a team</span>
     </div>
@@ -41,4 +8,4 @@
         <app-subnav></app-subnav> 
         <app-conversation></app-conversation>
     </div>
-  </div>
+</div>
