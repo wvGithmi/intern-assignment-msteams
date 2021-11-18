@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'msteams-webapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('msteams-webapp');
+    expect(app.title).toEqual('Microsoft Teams Webapp');
   });
 
   // it('should render title', () => {

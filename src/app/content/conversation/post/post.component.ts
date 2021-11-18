@@ -43,7 +43,6 @@ export class PostComponent implements OnInit {
     this.getAllReplies();
   }
 
-  // TODO: Try to handle this from backend.
   getFullName() {
     return this.userService.getUserById(this.conversation?.id || 1).subscribe((response) => {
       this.fullName = response[0].userFirstName + " " + response[0].userLastName

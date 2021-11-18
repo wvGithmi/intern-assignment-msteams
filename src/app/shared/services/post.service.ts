@@ -16,10 +16,8 @@ export class PostService {
 
   private postsUrl = 'http://localhost:5000/api/Posts'; // URL to server
 
-  // chatData: Post = new Post()
-
   httpOptions = {
-    // headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   // POST a new post to the server

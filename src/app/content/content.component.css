@@ -8,9 +8,4 @@
 .right-panel-div {
     min-height: calc(100vh - 50px);
 }
-
-.left-panel-div span {
-    position: absolute;
-    bottom: 0px;
-}
   
